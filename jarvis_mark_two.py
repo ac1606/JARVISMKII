@@ -13,6 +13,8 @@ client = OpenAI()
 # Initialize the recognizer
 recognizer = sr.Recognizer()
 
+
+
 def listen_command():
     with sr.Microphone() as source:
         print("Listening...")
@@ -34,6 +36,7 @@ def get_response(command):
                 {"role": "user", "content": command},
             ]
         )
+        # print(type(response.choices[0].message.content))
         return response.choices[0].message.content
     except Exception as e:
         print(f"Error: {e}")
